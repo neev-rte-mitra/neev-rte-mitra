@@ -1,252 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Neev RTE Mitra — Offline-first PWA (Demo)</title>
-  <meta name="theme-color" content="#0b6b4f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neev RTE Mitra</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    :root{--accent:#0b6b4f;--muted:#666}
-    body{font-family:Inter,system-ui,Arial;margin:0;background:#f7f9fb;color:#111}
-    header{background:linear-gradient(90deg,var(--accent),#087a5a);color:#fff;padding:14px 18px}
-    h1{margin:0;font-size:18px}
-    .wrap{padding:16px;max-width:980px;margin:18px auto}
-    .card{background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 4px rgba(12,20,20,0.06)}
-    label{display:block;font-size:13px;margin:8px 0 6px}
-    input,select,textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #e2e8f0}
-    button{background:var(--accent);color:#fff;border:none;padding:10px 12px;border-radius:8px;cursor:pointer}
-    .row{display:flex;gap:12px}
-    .col{flex:1}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:8px;border-bottom:1px solid #eee;text-align:left;font-size:13px}
-    small{color:var(--muted)}
-    .muted{color:var(--muted);font-size:13px}
-    .toolbar{display:flex;gap:8px;align-items:center}
-    .badge{background:#e6fff4;color:#0b6b4f;padding:6px 8px;border-radius:999px;font-size:13px}
-    .danger{background:#ffecec;color:#b71c1c}
-    @media(min-width:900px){.row.two>.col{flex:0 0 48%}}
+    body {
+      background-image: url("NEEV BORDER.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      border: 8px solid #8B0000;
+    }
+    header img {
+      height: 90px;
+      margin: 10px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-bottom: 4px solid #8B0000;
+    }
+    h1 {
+      color: #003049;
+      margin-left: 15px;
+    }
+    section {
+      padding: 40px;
+      background: rgba(255,255,255,0.9);
+      margin: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Neev RTE Mitra — Offline PWA</h1>
-    <div class="muted">Add children offline, import CSV later to sync, export reports. No server needed.</div>
+    <img src="neev logo.jpg" alt="Neev Logo" />
+    <h1>Neev RTE Mitra</h1>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <div class="row">
-        <div class="col">
-          <strong>Local storage status:</strong>
-          <div id="status" class="muted">Initializing...</div>
-        </div>
-        <div class="col toolbar" style="justify-content:flex-end">
-          <button id="btn-export">Export CSV</button>
-          <input id="csvImport" type="file" accept="text/csv" style="display:none">
-          <button id="btn-import">Import CSV (Upload sheet)</button>
-          <button id="btn-clear" class="danger" title="Clear all local data">Clear Data</button>
-        </div>
-      </div>
-    </section>
+  <section>
+    <h2>About the Initiative</h2>
+    <p>
+      Neev RTE Mitra is a community-driven platform supporting parents and volunteers
+      in facilitating Right to Education (RTE) admissions, awareness, and monitoring
+      under the Neev Shiksha Jankalyan Samiti.
+    </p>
+  </section>
 
-    <section class="card">
-      <h3>Add / Edit Child Survey</h3>
-      <form id="childForm">
-        <div class="row two">
-          <div class="col">
-            <label>Child name</label>
-            <input id="c_name" required />
-          </div>
-          <div class="col">
-            <label>Age</label>
-            <input id="c_age" type="number" min="1" required />
-          </div>
-        </div>
-        <div class="row two">
-          <div class="col">
-            <label>Gender</label>
-            <select id="c_gender"><option>Male</option><option>Female</option><option>Other</option></select>
-          </div>
-          <div class="col">
-            <label>Last attended grade (if any)</label>
-            <input id="c_grade" placeholder="e.g., 3rd" />
-          </div>
-        </div>
-        <label>Guardian name</label>
-        <input id="c_guardian" />
-        <label>Address / Village</label>
-        <input id="c_addr" />
-        <label>School status</label>
-        <select id="c_status"><option>Not enrolled</option><option>Dropped out</option><option>Enrolled under RTE</option></select>
-        <label>Notes / Reason</label>
-        <textarea id="c_notes" rows="2"></textarea>
-        <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
-          <button type="submit">Save Record</button>
-          <button type="button" id="btn-loc">Attach Current GPS</button>
-          <div id="gps" class="muted">No GPS</div>
-        </div>
-      </form>
-    </section>
+  <section>
+    <h2>For Volunteers</h2>
+    <p>
+      Download volunteer instructions and RTE templates to guide your work in the field.
+      <br><br>
+      <a class="btn" href="Neev_RTE_Volunteer_Instructions.pdf" target="_blank">📘 Volunteer Instructions</a>
+      <br><br>
+      <a class="btn" href="neev_rte_template.csv" target="_blank">📄 RTE Template</a>
+    </p>
+  </section>
 
-    <section class="card">
-      <h3>Data & Reports</h3>
-      <div class="muted">Total records: <span id="total">0</span> • Enrolled: <span id="enrolled">0</span> • Pending docs: <span id="pending">0</span></div>
-      <div style="margin-top:12px;overflow:auto;max-height:360px">
-        <table id="table">
-          <thead><tr><th>Name</th><th>Age</th><th>Gender</th><th>Status</th><th>Area</th><th>GPS</th><th></th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
+  <section>
+    <h2>Contact Us</h2>
+    <p>Email: info@neevsamiti.org</p>
+    <p>Address: Gwalior, Madhya Pradesh</p>
+  </section>
 
-    <section class="card">
-      <h3>How to use (quick)</h3>
-      <ol>
-        <li>Add children using the form — they will be saved locally (IndexedDB) and available offline.</li>
-        <li>When you get a CSV/Excel sheet from field, convert it to CSV with headers and use "Import CSV" to bulk add records to the app.</li>
-        <li>Use "Export CSV" to create a CSV you can send to funders or upload to a developer server later for sync.</li>
-      </ol>
-      <div class="muted">CSV columns supported: name,age,gender,guardian,address,status,grade,notes,lat,lng</div>
-    </section>
-
-  </main>
-
-  <script>
-  // Simple IndexedDB wrapper
-  const DB_NAME = 'neev_rte_db_v1';
-  const STORE = 'children';
-  let db;
-  function openDB(){
-    return new Promise((res,rej)=>{
-      const r = indexedDB.open(DB_NAME,1);
-      r.onupgradeneeded = e=>{ db = e.target.result; if(!db.objectStoreNames.contains(STORE)) db.createObjectStore(STORE,{keyPath:'id'}); };
-      r.onsuccess = e=>{ db = e.target.result; res(db); };
-      r.onerror = e=> rej(e);
-    });
-  }
-  function putItem(item){ item.id = item.id || ('c_'+Date.now()+'_'+Math.floor(Math.random()*999)); return new Promise((res,rej)=>{ const tx = db.transaction(STORE,'readwrite'); const s = tx.objectStore(STORE); s.put(item); tx.oncomplete = ()=> res(item); tx.onerror = e=> rej(e); }); }
-  function getAll(){ return new Promise((res,rej)=>{ const tx = db.transaction(STORE,'readonly'); const s = tx.objectStore(STORE); const r = s.getAll(); r.onsuccess = ()=> res(r.result); r.onerror = e=> rej(e); }); }
-  function clearAll(){ return new Promise((res,rej)=>{ const tx = db.transaction(STORE,'readwrite'); tx.objectStore(STORE).clear(); tx.oncomplete = ()=> res(); tx.onerror = e=> rej(e); }); }
-  function deleteItem(id){ return new Promise((res,rej)=>{ const tx = db.transaction(STORE,'readwrite'); tx.objectStore(STORE).delete(id); tx.oncomplete = ()=> res(); tx.onerror = e=> rej(e); }); }
-
-  // UI bindings
-  const statusEl = document.getElementById('status');
-  const totalEl = document.getElementById('total');
-  const enrolledEl = document.getElementById('enrolled');
-  const pendingEl = document.getElementById('pending');
-  const tableBody = document.querySelector('#table tbody');
-  const gpsEl = document.getElementById('gps');
-
-  openDB().then(()=>{
-    statusEl.textContent = 'IndexedDB ready — app works offline';
-    refreshTable();
-  }).catch(e=>{ statusEl.textContent = 'IndexedDB error: '+e; });
-
-  document.getElementById('childForm').addEventListener('submit', async (ev)=>{
-    ev.preventDefault();
-    const item = {
-      name: document.getElementById('c_name').value.trim(),
-      age: document.getElementById('c_age').value,
-      gender: document.getElementById('c_gender').value,
-      grade: document.getElementById('c_grade').value,
-      guardian: document.getElementById('c_guardian').value,
-      address: document.getElementById('c_addr').value,
-      status: document.getElementById('c_status').value,
-      notes: document.getElementById('c_notes').value,
-      created_at: new Date().toISOString(),
-      gps: gpsEl.dataset.coords || null
-    };
-    await putItem(item);
-    ev.target.reset(); gpsEl.textContent='No GPS'; delete gpsEl.dataset.coords;
-    refreshTable();
-  });
-
-  document.getElementById('btn-loc').addEventListener('click', ()=>{
-    if(!navigator.geolocation){ alert('Geolocation not supported'); return; }
-    navigator.geolocation.getCurrentPosition(pos=>{
-      const lat = pos.coords.latitude.toFixed(6), lng = pos.coords.longitude.toFixed(6);
-      gpsEl.textContent = lat+','+lng; gpsEl.dataset.coords = lat+','+lng;
-    },err=>{ alert('GPS error: '+err.message); });
-  });
-
-  async function refreshTable(){
-    const items = await getAll();
-    tableBody.innerHTML='';
-    let enrolled=0, pending=0;
-    items.sort((a,b)=> new Date(b.created_at) - new Date(a.created_at));
-    for(const it of items){
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${escapeHtml(it.name||'')}</td><td>${escapeHtml(it.age||'')}</td><td>${escapeHtml(it.gender||'')}</td><td>${escapeHtml(it.status||'')}</td><td>${escapeHtml(it.address||'')}</td><td>${escapeHtml(it.gps||'')}</td><td><button data-id='${it.id}' class='edit'>Edit</button> <button data-id='${it.id}' class='del'>Delete</button></td>`;
-      tableBody.appendChild(tr);
-      if((it.status||'').toLowerCase().includes('enroll')) enrolled++;
-      if(!it.grade || it.grade.trim()==='') pending++;
-    }
-    totalEl.textContent = items.length; enrolledEl.textContent = enrolled; pendingEl.textContent = pending;
-    document.querySelectorAll('.edit').forEach(b=>b.onclick = e=>{ openEdit(e.target.dataset.id); });
-    document.querySelectorAll('.del').forEach(b=>b.onclick = async e=>{ if(confirm('Delete record?')){ await deleteItem(e.target.dataset.id); refreshTable(); } });
-  }
-
-  async function openEdit(id){ const items = await getAll(); const it = items.find(x=>x.id===id); if(!it) return; document.getElementById('c_name').value = it.name || ''; document.getElementById('c_age').value = it.age || ''; document.getElementById('c_gender').value = it.gender || 'Male'; document.getElementById('c_grade').value = it.grade || ''; document.getElementById('c_guardian').value = it.guardian || ''; document.getElementById('c_addr').value = it.address || ''; document.getElementById('c_status').value = it.status || 'Not enrolled'; document.getElementById('c_notes').value = it.notes || ''; // set id to form dataset to know update
-    document.getElementById('childForm').onsubmit = async function(ev){ ev.preventDefault(); it.name = document.getElementById('c_name').value; it.age = document.getElementById('c_age').value; it.gender = document.getElementById('c_gender').value; it.grade = document.getElementById('c_grade').value; it.guardian = document.getElementById('c_guardian').value; it.address = document.getElementById('c_addr').value; it.status = document.getElementById('c_status').value; it.notes = document.getElementById('c_notes').value; it.updated_at = new Date().toISOString(); await putItem(it); this.reset(); this.onsubmit = defaultSubmit; refreshTable(); };
-  }
-  function defaultSubmit(ev){ /* placeholder replaced when editing */ }
-
-  // CSV Export
-  document.getElementById('btn-export').addEventListener('click', async ()=>{
-    const items = await getAll();
-    const header = ['id','name','age','gender','guardian','address','status','grade','notes','gps','created_at'];
-    const rows = items.map(it=> header.map(h=>escapeCsv(String(it[h]||'')).replace(/\n/g,' ')).join(','));
-    const csv = header.join(',') + '\n' + rows.join('\n');
-    const blob = new Blob([csv],{type:'text/csv'}); const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href=url; a.download='neev_rte_export_'+Date.now()+'.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-  });
-
-  // CSV Import
-  document.getElementById('btn-import').addEventListener('click', ()=> document.getElementById('csvImport').click());
-  document.getElementById('csvImport').addEventListener('change', async (ev)=>{
-    const f = ev.target.files[0]; if(!f) return; const txt = await f.text(); const rows = parseCSV(txt); if(rows.length===0) return alert('No rows found');
-    const header = rows[0].map(h=>h.trim().toLowerCase());
-    const mapping = {name:['name','child name','child'], age:['age'], gender:['gender','sex'], guardian:['guardian','parent'], address:['address','village','addr'], status:['status'], grade:['grade'], notes:['notes','reason'], lat:['lat','latitude'], lng:['lng','longitude'] };
-    let count=0;
-    for(let i=1;i<rows.length;i++){
-      const r = rows[i]; if(r.join('').trim()==='') continue;
-      const obj = {};
-      for(let j=0;j<r.length;j++){ const col = header[j]; const val = r[j].trim(); for(const key in mapping){ if(mapping[key].includes(col)){ obj[key]=val; } } }
-      // build record
-      const rec = { name: obj.name||('Unknown_'+i), age: obj.age||'', gender: obj.gender||'Male', guardian: obj.guardian||'', address: obj.address||'', status: obj.status||'Not enrolled', grade: obj.grade||'', notes: obj.notes||'', created_at: new Date().toISOString() };
-      if(obj.lat && obj.lng) rec.gps = obj.lat+','+obj.lng;
-      await putItem(rec); count++;
-    }
-    alert('Imported '+count+' rows'); ev.target.value=''; refreshTable();
-  });
-
-  // CSV helpers
-  function parseCSV(text){
-    const lines = text.split(/\r?\n/).filter(l=>l.trim()!=="");
-    return lines.map(l=>{
-      const out=[]; let cur='', inQ=false; for(let i=0;i<l.length;i++){ const ch=l[i]; if(ch==='"'){ if(inQ && l[i+1]==='"'){ cur+='"'; i++; } else inQ=!inQ; } else if(ch===',' && !inQ){ out.push(cur); cur=''; } else cur+=ch; } out.push(cur); return out.map(s=>s.trim());
-    });
-  }
-  function escapeCsv(s){ if(s==null) s=''; if(s.indexOf(',')>=0 || s.indexOf('\n')>=0 || s.indexOf('"')>=0) return '"'+s.replace(/"/g,'""')+'"'; return s; }
-
-  function escapeHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-  // Clear data
-  document.getElementById('btn-clear').addEventListener('click', async ()=>{ if(confirm('Delete ALL local data?')){ await clearAll(); refreshTable(); } });
-
-  // Service worker registration via blob (single-file PWA)
-  if('serviceWorker' in navigator){
-    const swCode = `self.addEventListener('install',e=>{self.skipWaiting();});self.addEventListener('activate',e=>{self.clients.claim();});self.addEventListener('fetch',e=>{if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(()=>caches.match('/offline.html')));}else{e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));}});`;
-    const blob = new Blob([swCode],{type:'application/javascript'});
-    const swUrl = URL.createObjectURL(blob);
-    navigator.serviceWorker.register(swUrl).then(()=>console.log('SW registered')).catch(e=>console.log('SW failed',e));
-  }
-
-  // Show app install prompt hint
-  let deferredPrompt;
-  window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; const btn = document.createElement('button'); btn.textContent='Install App'; btn.onclick = ()=>{ deferredPrompt.prompt(); deferredPrompt.userChoice.then(()=>{}); }; document.querySelector('header').appendChild(btn); });
-
-  </script>
+  <footer>
+    <p>© 2025 Neev Shiksha Jankalyan Samiti | Supported by APF</p>
+  </footer>
 </body>
 </html>
+
+   
+   
+      
+         
+ 
