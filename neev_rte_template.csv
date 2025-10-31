@@ -1,0 +1,4 @@
+id,name,age,gender,guardian,address,status,grade,notes,lat,lng,documents,photo_urls,created_at
+c_20251031_001,Anita Devi,9,Female,Suresh Devi,"Bijli Nagar, Village A",Not enrolled,,"Never attended school, family migratory",25.430123,78.564321,"birth_certificate.pdf,aadhar.pdf",,2025-10-31T11:25:16.077547
+c_20251031_002,Raju Kumar,12,Male,Ram Kumar,"Sector 5, Town B",Dropped out,5th,"Dropped due to finances, interested to re-enroll",,,aadhar.pdf,,2025-10-31T11:25:16.077558
+c_20251031_003,Meena,7,Female,Lakshmi,Colony C,Enrolled under RTE,2nd,Admission done on 2025-09-10,25.431000,78.565000,"birth_certificate.pdf,aadhar.pdf,residence_proof.pdf",,2025-10-31T11:25:16.077560
