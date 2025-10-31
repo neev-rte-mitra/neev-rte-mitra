@@ -1,0 +1,102 @@
+/* style.css - Neev RTE Mitra */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #fafafa url('NEEV BORDER.jpg') center/cover no-repeat;
+  color: #222;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: #ffffffd9;
+  padding: 10px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  height: 60px;
+  margin-right: 15px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #0077b6;
+  margin: 0;
+}
+
+nav {
+  background: #0077b6;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd60a;
+}
+
+section {
+  padding: 60px 100px;
+  background-color: #fff;
+  margin: 40px auto;
+  max-width: 1000px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  color: #0077b6;
+  border-left: 6px solid #ffd60a;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+button, .btn {
+  background-color: #0077b6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover, .btn:hover {
+  background-color: #005f87;
+}
+
+footer {
+  background-color: #003049;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+  section {
+    padding: 30px 20px;
+  }
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
